@@ -1,0 +1,17 @@
+<ion-view title="{{feedback_navTitle}}" left-buttons="leftButtons">
+
+    <ion-content has-header="true" padding="true">
+
+        <h6 translate="feedback_inf"></h6>
+        <label class="item item-input item-stacked-label">
+
+            <textarea class="checkforms" placeholder={{'comment_placeholder'|translate}} rows="8" cols="10" ng-model="feedback.text" ng-pattern="pattern.field"></textarea>
+        </label>
+        <p><h></h></p>
+        <button class="button button-stable" ui-sref = 'main.info'>
+            <div translate="Submit"></div>
+        </button>
+
+    </ion-content>
+
+</ion-view>

@@ -1,0 +1,20 @@
+<ion-view title="{{myItem_navTitle|translate}}" left-buttons="leftButtons">
+
+    <ion-content has-header="true" padding="true">
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label" translate="Email"></span>
+                <input type="text" ng-model="credentials.email">
+            </label>
+            <label class="item item-input">
+                <span class="input-label" translate="Secret_key"></span>
+                <input type="password" ng-model="credentials.key">
+            </label>
+        </div>
+        <button class="button button-stable" ui-sref="main.myitems2({email:credentials.email,key:credentials.key})">
+            <span translate="Find_items"></span>
+        </button>
+
+    </ion-content>
+
+</ion-view>

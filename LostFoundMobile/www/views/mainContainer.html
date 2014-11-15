@@ -1,0 +1,31 @@
+<ion-side-menus>
+
+    <ion-pane ion-side-menu-content>
+        <ion-nav-bar type="bar bar-header bar-dark"
+
+                     animation="nav-title-slide-ios7"
+                >
+
+        </ion-nav-bar>
+        <ion-nav-view name="main"></ion-nav-view>
+    </ion-pane>
+
+    <ion-side-menu side="left">
+        <header class="bar bar-header bar-stable">
+            <div class="title">Lost\Found Menu</div>
+        </header>
+        <ion-content has-header="true">
+            <ul class="list">
+
+                <a ui-sref="main.home" class="item" ng-click="toggleMenu()"><span translate="Posts">Posts</span></a>
+                <a ui-sref="main.myitems1" class="item" ng-click="toggleMenu()"><span translate="myItem_navTitle">My Items</span></a>
+                <a ui-sref="main.info" class="item" ng-click="toggleMenu()"><span translate="about_navTitle">About us</span></a>
+                <a ui-sref="main.feedback" class="item" ng-click="toggleMenu()"><span>FeedBack</span></a>
+                <a ui-sref="main.help" class="item" ng-click="toggleMenu()"><span translate="Help">Help</span></a>
+                <a ui-sref="main.language" class="item" ng-click="toggleMenu()"><span translate="lang_navTitle">Language</span></a>
+
+            </ul>
+        </ion-content>
+    </ion-side-menu>
+
+</ion-side-menus>

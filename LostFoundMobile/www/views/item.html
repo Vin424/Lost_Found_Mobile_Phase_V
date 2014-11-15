@@ -1,0 +1,43 @@
+<ion-view title="{{'item_navTitle'|translate}}" left-buttons="leftButtons" right-buttons="rightButtons">
+
+    <ion-content has-header="true" padding="true">
+        <div class="list card">
+
+            <div>
+                <h4>{{item.email}}</h4>
+                <p><a class="button icon-left ion-ios7-telephone button-clear button-dark">{{item.phone}}</a></p>
+                <p>{{item.itemdate}}</p>
+
+            </div>
+
+            <div class="item item-body">
+                <img class="full-image" ng-src="http://136.145.116.235:3000/{{item.itempicture}}">
+            </div>
+
+            <div class="item item-body">
+
+                <p class="subdued"><span translate="Location:"></span> {{item.locationitem}}</p>
+                <p class="subdued"><span translate="Category:"></span> {{item.category}}</p>
+                <p>{{item.description}}</p>
+                <p> <a ui-sref= "main.comments" class="subdued"><span translate="Comments"></span></a></p>
+
+            </div>
+
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" ui-sref="main.comments({item:item.itemid})">
+                    <i class="icon ion-chatbox"></i>
+                    <span translate="Comments"></span>
+                </a>
+                <a class="tab-item" ng-click="thumbsdown(item.itemid)">
+                    <i class="icon ion-thumbsdown"></i>
+                    <span translate="Report"></span>
+                </a>
+            </div>
+
+        </div>
+
+
+
+    </ion-content>
+
+</ion-view>

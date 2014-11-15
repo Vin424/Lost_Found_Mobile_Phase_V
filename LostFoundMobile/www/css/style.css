@@ -1,0 +1,14 @@
+body {
+  cursor: url('http://ionicframework.com/img/finger.png'), auto;
+}
+
+
+ .checkforms {
+     -webkit-transition:all linear 0.5s;
+     transition:all linear 0.5s;
+     background: transparent;
+ }
+.checkforms.ng-invalid {
+    color:white;
+    background: red;
+}

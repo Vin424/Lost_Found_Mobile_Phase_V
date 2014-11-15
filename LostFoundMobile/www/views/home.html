@@ -1,0 +1,121 @@
+<ion-view title="{{navTitle}}"  left-buttons="leftButtons" right-buttons="rightButtons">
+
+    <ion-tabs tabs-type="tabs-icon-top">
+        <!--  Lost Items   -->
+        <ion-tab title="LostItems" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline">
+            <ion-content has-header="true" padding="true">
+
+                <div class="list">
+
+                    <div class="item item-input-inset">
+                        <label class="item-input-wrapper">
+                            <input type="text" placeholder={{'Search'|translate}}>
+                        </label>
+                        <select width="100" style="width: 100px" >
+                            <option selected >All</option>
+                            option>Bags</option>
+                            <option>Books</option>
+                            <option>Clothes</option>
+                            <option>Electronics</option>
+                            <option>Tools</option>
+                            <option>Other</option>
+
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="list" ng-repeat="item in lostItems" >
+
+                    <a class="item item-thumbnail-left" ui-sref="main.item({item:item.itemid})" ng-click="setValue(item)">
+                        <img ng-src=http://136.145.116.235:3000/{{item.itempicture}}>
+                        <h2><span translate="Item:">Item</span> {{item.itemname}}</h2>
+                        <p><span translate="Name:">Name:</span> {{item.itemname}}</p>
+                        <p><span translate="Location:">Location:</span> {{item.locationitem}}</p>
+                        <p><span translate="Category:">Category:</span> {{item.itemcategry}}</p>
+                        <p><span translate="Satus:">Satus:</span> {{item.itemstatus}}</p>
+                        <p>{{item.itemviews}}</p>
+                    </a>
+                </div>
+
+
+
+            </ion-content>
+        </ion-tab>
+<!--  NewsFeed   -->
+        <ion-tab title="NewsFeed" icon-on="ion-ios7-monitor" icon-off="ion-ios7-monitor-outline">
+            <ion-content has-header="true" padding="true">
+
+                <div class="list">
+
+                    <div class="item item-input-inset">
+                        <label class="item-input-wrapper">
+                            <input type="text" placeholder={{'Search'|translate}}>
+                        </label>
+                        <select width="100" style="width: 100px">
+                            <option selected>All</option>
+                            option>Bags</option>
+                            <option>Books</option>
+                            <option>Clothes</option>
+                            <option>Electronics</option>
+                            <option>Tools</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="list" ng-repeat="item in items">
+
+                    <a class="item item-thumbnail-left" ui-sref="main.item({item:item.itemid})" ng-click="setValue(item)">
+                        <img ng-src=http://136.145.116.235:3000/{{item.itempicture}}>
+                        <h2><span translate="Item:">Item</span> {{item.itemname}}</h2>
+                        <p><span translate="Name:">Name:</span> {{item.itemname}}</p>
+                        <p><span translate="Location:">Location:</span> {{item.locationitem}}</p>
+                        <p><span translate="Category:">Category:</span> {{item.itemcategry}}</p>
+                        <p><span translate="Satus:">Satus:</span> {{item.itemstatus}}</p>
+                        <p>{{item.itemviews}}</p>
+                    </a>
+                </div>
+
+            </ion-content>
+        </ion-tab>
+        <!--  Found Items   -->
+        <ion-tab title="FoundItems" icon-on="ion-ios7-box" icon-off="ion-ios7-box-outline">
+            <ion-content has-header="true" padding="true">
+
+                <div class="list">
+
+                    <div class="item item-input-inset">
+                        <label class="item-input-wrapper">
+                            <input type="text" placeholder={{'Search'|translate}}>
+                        </label>
+                        <select width="100" style="width: 100px">
+                            <option selected >All</option>
+                            option>Bags</option>
+                            <option>Books</option>
+                            <option>Clothes</option>
+                            <option>Electronics</option>
+                            <option>Tools</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                 <div class="list" ng-repeat="item in foundItems" >
+
+                    <a class="item item-thumbnail-left" ui-sref="main.item({item:item.itemid})" ng-click="setValue(item)">
+                        <img ng-src=http://136.145.116.235:3000/{{item.itempicture}}>
+                        <h2><span translate="Item:">Item</span> {{item.itemname}}</h2>
+                        <p><span translate="Name:">Name:</span> {{item.itemname}}</p>
+                        <p><span translate="Location:">Location:</span> {{item.locationitem}}</p>
+                        <p><span translate="Category:">Category:</span> {{item.itemcategry}}</p>
+                        <p><span translate="Satus:">Satus:</span> {{item.itemstatus}}</p>
+                        <p>{{item.itemviews}}</p>
+                    </a>
+                </div>
+
+            </ion-content>
+        </ion-tab>
+    </ion-tabs>
+
+
+</ion-view>

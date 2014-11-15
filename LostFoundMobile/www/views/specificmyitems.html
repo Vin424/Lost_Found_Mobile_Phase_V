@@ -1,0 +1,49 @@
+<ion-view title="{{'myItem_navTitle'|translate}}" left-buttons="leftButtons" right-buttons="rightButtons">
+
+    <ion-content has-header="true" padding="true">
+        <div class="list card">
+
+
+            <div>
+                <h4>{{specificItem.email}}</h4>
+                <p><a class="button icon-left ion-ios7-telephone button-clear button-dark">{{specificItem.phone}}</a></p>
+                <p>{{specificItem.itemdate}}</p>
+
+            </div>
+
+            <div class="item item-body">
+                <img class="full-image" ng-src="http://136.145.116.235:3000/{{specificItem.itempicture}}">
+            </div>
+
+            <div class="item item-body">
+
+                <p class="subdued"><span translate="Location:"></span> {{specificItem.locationitem}}</p>
+                <p class="subdued"><span translate="Category:"></span> {{specificItem.category}}</p>
+                <p>{{item.description}}</p>
+                <p> <a ui-sref= "main.comments" class="subdued"><span translate="Comments"></span></a></p>
+
+            </div>
+
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" ui-sref="main.comments({item:item.itemid})">
+                    <i class="icon ion-chatbox"></i>
+                    <span translate="Comments"></span>
+                </a>
+                <a class="tab-item" ng-click="thumbsdown(specificItemitem.itemid)">
+                    <i class="icon ion-thumbsdown"></i>
+                    <span translate="Report"></span>
+                </a>
+
+                <a class="tab-item" ui-sref="main.reportitem1">
+                    <i class="icon ion-settings"></i>
+                    <span translate="edit_post">Edit Post</span>
+                </a>
+            </div>
+
+        </div>
+
+
+
+    </ion-content>
+
+</ion-view>
