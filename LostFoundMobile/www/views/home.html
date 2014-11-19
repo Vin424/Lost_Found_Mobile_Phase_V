@@ -28,7 +28,7 @@
                 <div class="list" ng-repeat="item in lostItems" >
 
                     <a class="item item-thumbnail-left" ui-sref="main.item({item:item.itemid})" ng-click="setValue(item)">
-                        <img ng-src=http://136.145.116.235:3000/{{item.itempicture}}>
+                        <img ng-src=data:image/png;base64,{{item.itempicture}}>
                         <h2><span translate="Item:">Item</span> {{item.itemname}}</h2>
                         <p><span translate="Name:">Name:</span> {{item.itemname}}</p>
                         <p><span translate="Location:">Location:</span> {{item.locationitem}}</p>
@@ -66,7 +66,7 @@
                 <div class="list" ng-repeat="item in items">
 
                     <a class="item item-thumbnail-left" ui-sref="main.item({item:item.itemid})" ng-click="setValue(item)">
-                        <img ng-src=http://136.145.116.235:3000/{{item.itempicture}}>
+                          <img ng-src=data:image/png;base64,{{item.itempicture}}>
                         <h2><span translate="Item:">Item</span> {{item.itemname}}</h2>
                         <p><span translate="Name:">Name:</span> {{item.itemname}}</p>
                         <p><span translate="Location:">Location:</span> {{item.locationitem}}</p>
@@ -103,7 +103,7 @@
                  <div class="list" ng-repeat="item in foundItems" >
 
                     <a class="item item-thumbnail-left" ui-sref="main.item({item:item.itemid})" ng-click="setValue(item)">
-                        <img ng-src=http://136.145.116.235:3000/{{item.itempicture}}>
+                           <img ng-src=data:image/png;base64,{{item.itempicture}}>
                         <h2><span translate="Item:">Item</span> {{item.itemname}}</h2>
                         <p><span translate="Name:">Name:</span> {{item.itemname}}</p>
                         <p><span translate="Location:">Location:</span> {{item.locationitem}}</p>

@@ -23,6 +23,7 @@
                     <option>Other</option>
                 </select>
             </label>
+
             <label class="item item-input item-select">
                 <div class="input-label">
                     <span translate="item_status"></span>
@@ -50,15 +51,17 @@
             </textarea>
         </label>
 
+
+
         <p><h></h></p>
 
         <label>
             <div class="entrybuttons">
                 <p> <button class="button button-stable icon-right ion-image"
-                            ng-click="getPic()"><span translate="Upload"></span></button>
+                            ng-click=""><span translate="Upload"></span></button>
 
                     <button class="button button-stable icon-right ion-camera"
-                            ng-click="takePic()"><span translate="Take"></span></button>
+                            ng-click="takePic();"><span translate="Take"></span></button>
 
                     <button class="button button-stable icon-right ion-ios7-upload"
                             ng-click="updateValues(myFile)"
@@ -66,6 +69,8 @@
                         <span translate="PostItem"></span></button>
 
                 </p>
+
+
             </div>
         </label>
         <p><h5 translate="cont_disp"></h5></p>
@@ -132,8 +137,11 @@
             </ul>
         </label>
         <p></p>
+
         <p><button class="button icon-right ion-star button-stable">
             <span translate="Preview"></span></button></p>
+          
+            
 
     </ion-content>
 

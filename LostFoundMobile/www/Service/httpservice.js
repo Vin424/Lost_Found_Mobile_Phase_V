@@ -23,7 +23,8 @@
             postItemPic:postItemPic,
             getAuth:getAuth,
             updateUser:updateUser,
-            updateItem:updateItem
+            updateItem:updateItem,
+            uploadPic:uploadPic
 
 
 
@@ -84,6 +85,11 @@
             return $http.post('http://136.145.116.235:3000/addFeedback/',data);
         };
 
+  function uploadPic(fileContent, name){       
+    return $http.post('/base64/'+ name,{
+    base64: fileContent
+});
+ }
 
         function postItem(newItem){
             var data = newItem;
