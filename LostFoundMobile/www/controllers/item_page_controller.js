@@ -13,23 +13,23 @@ control.controller('itemPageController', [ '$scope', '$state','$stateParams','sh
             window.history.back();
         }
     }];
-    getItemID();
+//    getItemID();
+//
+//
+//    function getItemID(){
+//        restApi.getItemId($stateParams.item)
+//            .success(function (data) {
+//                $scope.item= data.item[0];
+//
+//            })
+//            .error(function (error) {
+//                $scope.status = 'Unable to load customer data: ' + error.message;
+//            });
+//
+//        return $scope.item;
+//    }
 
-
-    function getItemID(){
-        restApi.getItemId($stateParams.item)
-            .success(function (data) {
-                $scope.item= data.item[0];
-
-            })
-            .error(function (error) {
-                $scope.status = 'Unable to load customer data: ' + error.message;
-            });
-
-        return $scope.item;
-    }
-
-
+    $scope.item = shareData.selectedItem;
 
 
     $scope.thumbsdown = function(id) {

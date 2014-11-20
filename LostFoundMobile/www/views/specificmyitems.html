@@ -12,7 +12,7 @@
             </div>
 
             <div class="item item-body">
-                <img class="full-image" ng-src="http://136.145.116.235:3000/{{specificItem.itempicture}}">
+                <img class="full-image" ng-src="{{specificItem.itempicture}}">
             </div>
 
             <div class="item item-body">
@@ -20,21 +20,18 @@
                 <p class="subdued"><span translate="Location:"></span> {{specificItem.locationitem}}</p>
                 <p class="subdued"><span translate="Category:"></span> {{specificItem.category}}</p>
                 <p>{{item.description}}</p>
-                <p> <a ui-sref= "main.comments" class="subdued"><span translate="Comments"></span></a></p>
+
 
             </div>
 
             <div class="item tabs tabs-secondary tabs-icon-left">
-                <a class="tab-item" ui-sref="main.comments({item:item.itemid})">
+                <a class="tab-item" ui-sref="main.comments({item:specificItem.itemid})">
                     <i class="icon ion-chatbox"></i>
                     <span translate="Comments"></span>
                 </a>
-                <a class="tab-item" ng-click="thumbsdown(specificItemitem.itemid)">
-                    <i class="icon ion-thumbsdown"></i>
-                    <span translate="Report"></span>
-                </a>
 
-                <a class="tab-item" ui-sref="main.reportitem1">
+
+                <a class="tab-item" ui-sref="main.editreportitem2({item:specificItem.itemid})">
                     <i class="icon ion-settings"></i>
                     <span translate="edit_post">Edit Post</span>
                 </a>

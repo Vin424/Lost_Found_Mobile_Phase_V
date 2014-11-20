@@ -1,4 +1,4 @@
-control.controller('homePageController', [ '$scope', '$state','restApi', function($scope, $state,restApi) {
+control.controller('homePageController', [ '$scope', '$state','restApi', 'shareData', function($scope, $state,restApi,shareData) {
 
     $scope.navTitle = 'Lost/Found';
     $scope.leftButtons = [{
@@ -15,8 +15,11 @@ control.controller('homePageController', [ '$scope', '$state','restApi', functio
     }];
 
 
+    $scope.getItems1 = function(){
+        getItems();
 
-    getItems();
+    };
+
     function getItems() {
         restApi.getItems()
             .success(function (data) {
@@ -30,7 +33,11 @@ control.controller('homePageController', [ '$scope', '$state','restApi', functio
 
     };
 
-    getLostItems();
+    $scope.getLostItems1 = function(){
+        getLostItems();
+
+  };
+
     function getLostItems() {
         restApi.getLostItems()
             .success(function (data) {
@@ -42,7 +49,10 @@ control.controller('homePageController', [ '$scope', '$state','restApi', functio
             });
     };
 
-    getFoundItems();
+    $scope.getFoundItems1 = function(){
+        getFoundItems();
+    };
+
     function getFoundItems() {
         restApi.getFoundItems()
             .success(function (data) {
@@ -55,7 +65,12 @@ control.controller('homePageController', [ '$scope', '$state','restApi', functio
     };
 
 
+    $scope.setValue = function(object){
 
+        shareData.selectedItem = object;
+
+
+    };
 
 
 

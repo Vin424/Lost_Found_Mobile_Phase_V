@@ -1,4 +1,4 @@
-control.controller('SpecificmyitemsPageController', [ '$scope','$stateParams', '$state','restApi', function($scope,$stateParams, $state, restApi) {
+control.controller('SpecificmyitemsPageController', [ '$scope','$stateParams', '$state','restApi','shareData', function($scope,$stateParams, $state, restApi, shareData) {
 
 
     $scope.leftButtons = [{
@@ -8,20 +8,24 @@ control.controller('SpecificmyitemsPageController', [ '$scope','$stateParams', '
         }
     }];
 
-    getItemID();
 
 
-    function getItemID(){
-        restApi.getItemId($stateParams.item)
-            .success(function (data) {
-                $scope.specificItem= data.item[0];
+$scope.specificItem=shareData.selectedItem;
 
-            })
-            .error(function (error) {
-                $scope.status = 'Unable to load customer data: ' + error.message;
-            });
-
-        return $scope.specificItem;
-    }
+//    getItemID();
+//
+//
+//    function getItemID(){
+//        restApi.getItemId($stateParams.item)
+//            .success(function (data) {
+//                $scope.specificItem= data.item[0];
+//
+//            })
+//            .error(function (error) {
+//                $scope.status = 'Unable to load customer data: ' + error.message;
+//            });
+//
+//        return $scope.specificItem;
+//    }
 
 }]);

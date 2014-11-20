@@ -31,7 +31,7 @@ $scope.updateValues = function(object){
     myFile.lastname = $stateParams.lastname;
     myFile.email = $stateParams.email;
     myFile.phone = $stateParams.phone;
-    myFile.itempicture = $scope.file;
+    myFile.itempicture = 'data:image/jpg;base64,'+ $scope.file;
 
     postItem(myFile);
 
@@ -88,7 +88,27 @@ $scope.updateValues = function(object){
 
 ///**************************************Get picture from library************************/
 ///**************************************************************************************/
+    $scope.getPic = function() {
+        var options =   {
+            quality: 25,
+            destinationType: Camera.DestinationType.DATA_URL,
+            sourceType: 0,      // 0:Photo Library, 1=Camera, 2=Saved Photo Album
+            encodingType: 0    // 0=JPG 1=PNG
+        }
+        navigator.camera.getPicture(onSuccess,onFail,options);
+    }
+    var onSuccess = function(DATA_URL) {
+        $scope.file = DATA_URL;
 
+        console.log(DATA_URL);
+        $scope.picData = DATA_URL;
+        $scope.$apply();
+    };
+
+
+    var onFail = function(e) {
+        console.log("On fail " + e);
+    }
     
 
 }]);

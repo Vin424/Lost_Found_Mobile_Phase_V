@@ -40,58 +40,103 @@ control.controller('editreportitem2PageController', [ '$scope', '$state','restAp
             $state.go('entry');
         }
     }];
+
+    var editItem={};
+
+
+
+
+    getItemID();
+    $scope.updateValues = function(object){
+
+
+        editItem = object;
+        editItem.itempicture = 'data:image/jpg;base64,'+ $scope.picData;
+
+        updateItem(editItem);
+        editItem={}
+    };
+
+    function updateItem(editItem) {
+        restApi.updateItem(editItem)
+            .success(function () {
+
+            })
+            .error(function (error) {
+                $scope.status = 'Unable to load customer data: ' + error.message;
+            });
+
+    };
+
+
+
+
+
+
+    function getItemID(){
+        restApi.getItemId($stateParams.item)
+            .success(function (data) {
+                editItem= data.item[0];
+
+            })
+            .error(function (error) {
+                $scope.status = 'Unable to load customer data: ' + error.message;
+            });
+
+        return $scope.item;
+    }
+
+
+
     /*****************************Take a picture***************************************/
     /**********************************************************************************/
+
     $scope.takePic = function() {
         var options =   {
-            quality: 50,
-            destinationType: Camera.DestinationType.FILE_URI,
+            quality: 25,
+            destinationType: Camera.DestinationType.DATA_URL,
             sourceType: 1,      // 0:Photo Library, 1=Camera, 2=Saved Photo Album
-            encodingType: 0     // 0=JPG 1=PNG
+            encodingType: 0    // 0=JPG 1=PNG
         }
         navigator.camera.getPicture(onSuccess,onFail,options);
     }
-    var onSuccess = function(FILE_URI) {
-        console.log(FILE_URI);
-        $scope.picData = FILE_URI;
+    var onSuccess = function(DATA_URL) {
+
+
+        console.log(DATA_URL);
+        $scope.picData = DATA_URL;
         $scope.$apply();
     };
+
+
     var onFail = function(e) {
         console.log("On fail " + e);
     }
-    $scope.send = function() {
-        var myImg = $scope.picData;
-        var options = new FileUploadOptions();
-        options.fileKey="post";
-        options.chunkedMode = false;
 
-    }
-/**************************************Get picture from library************************/
-/**************************************************************************************/
 
+
+///**************************************Get picture from library************************/
+///**************************************************************************************/
     $scope.getPic = function() {
         var options =   {
-            quality: 50,
-            destinationType: Camera.DestinationType.FILE_URI,
+            quality: 25,
+            destinationType: Camera.DestinationType.DATA_URL,
             sourceType: 0,      // 0:Photo Library, 1=Camera, 2=Saved Photo Album
-            encodingType: 0     // 0=JPG 1=PNG
+            encodingType: 0    // 0=JPG 1=PNG
         }
         navigator.camera.getPicture(onSuccess,onFail,options);
     }
-    var onSuccess = function(FILE_URI) {
-        console.log(FILE_URI);
-        $scope.picData = FILE_URI;
+    var onSuccess = function(DATA_URL) {
+
+
+        console.log(DATA_URL);
+        $scope.picData = DATA_URL;
         $scope.$apply();
     };
+
+
     var onFail = function(e) {
         console.log("On fail " + e);
-    }
-    $scope.send = function() {
-        var myImg = $scope.picData;
-        var options = new FileUploadOptions();
-        options.fileKey="post";
-        options.chunkedMode = false;
-
     }
 
 

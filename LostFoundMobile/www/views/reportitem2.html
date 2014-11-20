@@ -9,22 +9,22 @@
             </label>
 
 
-            <label class="item item-input item-select">
+            <div class="item item-input item-select">
                 <div class="input-label">
                     <span translate="select_category"></span>
                 </div>
                 <select ng-model="myFile.category">
                     <option ng-selected >All</option>
-                    option>Bags</option>
+                    <option>Bags</option>
                     <option>Books</option>
                     <option>Clothes</option>
                     <option>Electronics</option>
                     <option>Tools</option>
                     <option>Other</option>
                 </select>
-            </label>
+            </div>
 
-            <label class="item item-input item-select">
+            <div class="item item-input item-select">
                 <div class="input-label">
                     <span translate="item_status"></span>
                 </div>
@@ -32,7 +32,7 @@
                     <option><span translate="Lost">Lost</span></option>
                     <option><span translate="Found">Found</span></option>
                 </select>
-            </label>
+            </div>
 
             <label class="item item-input">
                 <span class="input-label" translate="Location:"></span>
@@ -58,88 +58,20 @@
         <label>
             <div class="entrybuttons">
                 <p> <button class="button button-stable icon-right ion-image"
-                            ng-click=""><span translate="Upload"></span></button>
+                            ng-click="getPic()"><span translate="Upload"></span></button>
 
                     <button class="button button-stable icon-right ion-camera"
                             ng-click="takePic();"><span translate="Take"></span></button>
 
                     <button class="button button-stable icon-right ion-ios7-upload"
-                            ng-click="updateValues(myFile)"
-                            >
-                        <span translate="PostItem"></span></button>
+                            ng-click="updateValues(myFile)" translate="PostItem"></button>
 
                 </p>
 
 
             </div>
         </label>
-        <p><h5 translate="cont_disp"></h5></p>
-        <label>
-            <ul  class="list">
-                <label>
-                    <li class="item item-toggle">
-                        <span translate="Email"> </span>
-                        <label class="toggle toggle-dark">
-                            <input type="checkbox">
-                            <div class="track">
-                                <div class="handle"></div>
-                            </div>
-                        </label>
-                    </li>
-                </label>
-
-                <p></p>
-
-                <label>
-
-                    <li class="item item-toggle">
-                        <span translate="First_Name"> </span>
-                        <label class="toggle toggle-dark">
-                            <input type="checkbox">
-                            <div class="track">
-                                <div class="handle"></div>
-                            </div>
-                        </label>
-                    </li>
-                </label>
-
-                <p></p>
-
-                <label>
-                    <li class="item item-toggle">
-                        <span translate="Phone"></span>
-                        <label class="toggle toggle-dark">
-                            <input type="checkbox">
-                            <div class="track">
-                                <div class="handle"></div>
-                            </div>
-                        </label>
-                    </li>
-                </label>
-            </ul>
-        </label>
-
-
-        <p></p>
-        <p><h5 translate="send_email"></h5></p>
-        <label>
-            <ul  class="list">
-
-                <li class="item item-toggle">
-                    <span translate="comment_update"></span>
-                    <label class="toggle toggle-dark">
-                        <input type="checkbox">
-                        <div class="track">
-                            <div class="handle"></div>
-                        </div>
-                    </label>
-                </li>
-            </ul>
-        </label>
-        <p></p>
-
-        <p><button class="button icon-right ion-star button-stable">
-            <span translate="Preview"></span></button></p>
+        <section><img ng-src={{$scope.file}}></section>
           
             
 

@@ -11,7 +11,7 @@
             </div>
 
             <div class="item item-body">
-                 <img ng-src=data:image/png;base64,{{item.itempicture}}>
+                 <img class="full-image" ng-src={{item.itempicture}}>
             </div>
 
             <div class="item item-body">
@@ -19,7 +19,7 @@
                 <p class="subdued"><span translate="Location:"></span> {{item.locationitem}}</p>
                 <p class="subdued"><span translate="Category:"></span> {{item.category}}</p>
                 <p>{{item.description}}</p>
-                <p> <a ui-sref= "main.comments" class="subdued"><span translate="Comments"></span></a></p>
+
 
             </div>
 

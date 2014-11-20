@@ -12,6 +12,7 @@ control.controller('commentsPageController', [ '$scope','$stateParams','shareDat
 
 
     getComment();
+
     function getComment() {
         restApi.getComments($stateParams.item)
             .success(function (data) {
@@ -21,7 +22,7 @@ control.controller('commentsPageController', [ '$scope','$stateParams','shareDat
             .error(function (error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;
             });
-    }
+    };
 
 
     var objectComment={};
@@ -31,7 +32,8 @@ control.controller('commentsPageController', [ '$scope','$stateParams','shareDat
            objectComment.isblocked = 'false';
            objectComment.itemid = $stateParams.item;
             postComment();
-        }
+            objectComment={};
+        };
     function postComment() {
 
         restApi.postComment(objectComment)

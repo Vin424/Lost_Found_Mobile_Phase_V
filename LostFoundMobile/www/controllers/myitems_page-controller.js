@@ -42,7 +42,7 @@ control.controller('myitems1PageController', [ '$scope','restApi','$state', func
 
 
 
-control.controller('myitems2PageController', [ '$scope', '$state','restApi','$stateParams', function($scope, $state, restApi,$stateParams) {
+control.controller('myitems2PageController', [ '$scope', '$state','restApi','$stateParams','shareData', function($scope, $state, restApi,$stateParams,shareData) {
 
 
     var credentials={};
@@ -72,6 +72,10 @@ control.controller('myitems2PageController', [ '$scope', '$state','restApi','$st
                 return $scope.myItems;
     };
 
+    $scope.setValue = function(object){
+        shareData.selectedItem = object;
+
+    };
 
 
 }]);

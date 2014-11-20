@@ -5,7 +5,7 @@
 
             <label class="item item-input">
                 <span class="input-label" translate="Item:"></span>
-                <input type="text" ng-model="list.itemname">
+                <input type="text" ng-model="editItem.itemname" value="{{editItem.itemname}}">
             </label>
 
 
@@ -13,9 +13,9 @@
                 <div class="input-label">
                     <span translate="select_category"></span>
                 </div>
-                <select>
+                <select ng-model="editItem.category">
                     <option ng-selected >All</option>
-                    option>Bags</option>
+                    <option>Bags</option>
                     <option>Books</option>
                     <option>Clothes</option>
                     <option>Electronics</option>
@@ -35,18 +35,18 @@
 
             <label class="item item-input">
                 <span class="input-label" translate="Location:"></span>
-                <input type="text" ng-model="list.location">
+                <input type="text" ng-model="editItem.location" value="{{editItem.location}}">
             </label>
             <label class="item item-input">
                 <span class="input-label" translate="City:"></span>
-                <input type="text" ng-model="list.city">
+                <input type="text" ng-model="editItem.city" value="{{editItem.city}}">
             </label>
 
         </div>
         <label class="item item-input item-stacked-label">
             <span class="input-label" translate="item_description"></span>
 
-            <textarea class="checkforms" placeholder={{'w_item_description'|translate}} rows="8" cols="10" ng-model="list.description" ng-pattern="pattern.field">
+            <textarea class="checkforms" placeholder={{'w_item_description'|translate}} rows="8" cols="10" ng-model="editItem.description" value="{{editItem.description}}" ng-pattern="pattern.field">
             </textarea>
         </label>
 
@@ -59,74 +59,12 @@
 
                     <button class="button button-stable icon-right ion-camera"
                             ng-click="takePic()"><span translate="Take"></span></button></p>
+
+                    <button class="button button-stable icon-right ion-ios7-upload"
+                        ng-click="updateValues(myFile)" translate="PostItem"></button>
             </div>
         </label>
-        <p><h5 translate="cont_disp"></h5></p>
-        <label>
-            <ul  class="list">
-                <label>
-                    <li class="item item-toggle">
-                        <span translate="Email"> </span>
-                        <label class="toggle toggle-dark">
-                            <input type="checkbox">
-                            <div class="track">
-                                <div class="handle"></div>
-                            </div>
-                        </label>
-                    </li>
-                </label>
 
-                <p></p>
-
-                <label>
-
-                    <li class="item item-toggle">
-                        <span translate="First_Name"> </span>
-                        <label class="toggle toggle-dark">
-                            <input type="checkbox">
-                            <div class="track">
-                                <div class="handle"></div>
-                            </div>
-                        </label>
-                    </li>
-                </label>
-
-                <p></p>
-
-                <label>
-                    <li class="item item-toggle">
-                        <span translate="Phone"></span>
-                        <label class="toggle toggle-dark">
-                            <input type="checkbox">
-                            <div class="track">
-                                <div class="handle"></div>
-                            </div>
-                        </label>
-                    </li>
-                </label>
-            </ul>
-        </label>
-
-
-        <p></p>
-        <p><h5 translate="send_email"></h5></p>
-        <label>
-            <ul  class="list">
-
-                <li class="item item-toggle">
-                    <span translate="comment_update"></span>
-                    <label class="toggle toggle-dark">
-                        <input type="checkbox">
-                        <div class="track">
-                            <div class="handle"></div>
-                        </div>
-                    </label>
-                </li>
-            </ul>
-        </label>
-        <p></p>
-        <p><button class="button icon-right ion-star button-stable">
-            <span translate="Preview"></span></button></p>
 
     </ion-content>
 
