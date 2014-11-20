@@ -1,5 +1,16 @@
 control.controller('homePageController', [ '$scope', '$state','restApi', 'shareData', function($scope, $state,restApi,shareData) {
 
+    var homepageCTRL = this;
+    homepageCTRL.lostpage = 0;
+    homepageCTRL.page = 0;
+    homepageCTRL.foundpage = 0;
+
+    $scope.setZero = function(){
+        homepageCTRL.lostpage = 0;
+        homepageCTRL.page = 0;
+        homepageCTRL.foundpage = 0;
+    };
+
     $scope.navTitle = 'Lost/Found';
     $scope.leftButtons = [{
         type: 'button-icon icon ion-navicon',
@@ -15,13 +26,14 @@ control.controller('homePageController', [ '$scope', '$state','restApi', 'shareD
     }];
 
 
-    $scope.getItems1 = function(){
-        getItems();
+    $scope.getItems1 = function(offset){
+        get5Items(offset);
 
     };
 
-    function getItems() {
-        restApi.getItems()
+    function get5Items(offset) {
+        homepageCTRL.page = homepageCTRL.page + offset;
+        restApi.get5Items(homepageCTRL.page)
             .success(function (data) {
 
                 $scope.items = data.items;
@@ -33,13 +45,16 @@ control.controller('homePageController', [ '$scope', '$state','restApi', 'shareD
 
     };
 
-    $scope.getLostItems1 = function(){
-        getLostItems();
+
+
+    $scope.getLostItems1 = function(offset){
+        get5LostItems(offset);
 
   };
 
-    function getLostItems() {
-        restApi.getLostItems()
+    function get5LostItems(offset) {
+        homepageCTRL.lostpage = homepageCTRL.lostpage + offset;
+        restApi.get5LostItems(homepageCTRL.lostpage)
             .success(function (data) {
 
                 $scope.lostItems = data.lostItems;
@@ -49,12 +64,13 @@ control.controller('homePageController', [ '$scope', '$state','restApi', 'shareD
             });
     };
 
-    $scope.getFoundItems1 = function(){
-        getFoundItems();
+    $scope.getFoundItems1 = function(offset){
+        get5FoundItems(offset);
     };
 
-    function getFoundItems() {
-        restApi.getFoundItems()
+    function get5FoundItems(offset) {
+        homepageCTRL.foundpage = homepageCTRL.foundpage + offset;
+        restApi.get5FoundItems(homepageCTRL.foundpage)
             .success(function (data) {
 
                 $scope.foundItems = data.foundItems;

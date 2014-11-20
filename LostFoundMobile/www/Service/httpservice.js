@@ -25,9 +25,9 @@
             updateUser:updateUser,
             updateItem:updateItem,
             uploadPic:uploadPic,
-            get10Items:get10Items,
-            get10LostItems:get10LostItems,
-            get10FoundItems:get10FoundItems,
+            get5Items:get5Items,
+            get5LostItems:get5LostItems,
+            get5FoundItems:get5FoundItems,
             getUserEmail: getUserEmail,
             postItemUpdate2:postItemUpdate2,
             postItem2:postItem2
@@ -143,16 +143,16 @@
             return $http.post('http://136.145.116.235:3000/addSeen/',data);
         };
 
-        function get10Items(offset){
-            return $http.get('http://136.145.116.235:3000/get10Items/'+offset);
+        function get5Items(offset){
+            return $http.get('http://136.145.116.235:3000/get5Items/'+offset);
         };
 
-        function get10LostItems(offset){
-            return $http.get('http://136.145.116.235:3000/get10LostItems/'+offset);
+        function get5LostItems(offset){
+            return $http.get('http://136.145.116.235:3000/get5LostItems/'+offset);
         };
 
-        function get10FoundItems(offset){
-            return $http.get('http://136.145.116.235:3000/get10FoundItems/'+offset);
+        function get5FoundItems(offset){
+            return $http.get('http://136.145.116.235:3000/get5FoundItems/'+offset);
         };
         function updateUser(user){
             var data = user;

@@ -2,7 +2,7 @@
 
     <ion-tabs tabs-type="tabs-icon-top">
         <!--  Lost Items   -->
-        <ion-tab title="LostItems" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline" on-select="getLostItems1()">
+        <ion-tab title="LostItems" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline" on-select="setZero();getLostItems1(0)">
             <ion-content has-header="true" padding="true">
 
                 <div class="list">
@@ -27,12 +27,21 @@
                     </a>
                 </div>
 
+                <div>
 
+                    <button class="button button-dark" ng-click="getLostItems1(5)">
+                        nextpage
+                    </button>
+                </div>
+                <br>
+                <br>
+                <br>
+                <p></p>
 
             </ion-content>
         </ion-tab>
 <!--  NewsFeed   -->
-        <ion-tab title="NewsFeed" icon-on="ion-ios7-monitor" icon-off="ion-ios7-monitor-outline" on-select="getItems1()">
+        <ion-tab title="NewsFeed" icon-on="ion-ios7-monitor" icon-off="ion-ios7-monitor-outline" on-select="setZero();getItems1(0)">
             <ion-content has-header="true" padding="true">
 
                 <div class="list">
@@ -57,7 +66,7 @@
                 </div>
                 <div>
 
-                    <button class="button button-dark" position="right">
+                    <button class="button button-dark" ng-click="getItems1(5)">
                         nextpage
                     </button>
                 </div>
@@ -69,7 +78,7 @@
             </ion-content>
         </ion-tab>
         <!--  Found Items   -->
-        <ion-tab title="FoundItems" icon-on="ion-ios7-box" icon-off="ion-ios7-box-outline" on-select="getFoundItems1()">
+        <ion-tab title="FoundItems" icon-on="ion-ios7-box" icon-off="ion-ios7-box-outline" on-select="setZero();getFoundItems1(0)">
             <ion-content has-header="true" padding="true">
 
                 <div class="list">
@@ -93,6 +102,17 @@
                         <p>{{item.itemviews}}</p>
                     </a>
                 </div>
+
+                <div>
+
+                    <button class="button button-dark" ng-click="getFoundItems1(5)">
+                        nextpage
+                    </button>
+                </div>
+                <br>
+                <br>
+                <br>
+                <p></p>
 
             </ion-content>
         </ion-tab>

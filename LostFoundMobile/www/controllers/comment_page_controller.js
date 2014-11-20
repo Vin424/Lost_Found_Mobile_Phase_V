@@ -32,8 +32,10 @@ control.controller('commentsPageController', [ '$scope','$stateParams','shareDat
            objectComment.isblocked = 'false';
            objectComment.itemid = $stateParams.item;
             postComment();
-            objectComment={};
+
         };
+
+
     function postComment() {
 
         restApi.postComment(objectComment)

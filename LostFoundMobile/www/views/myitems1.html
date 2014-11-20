@@ -1,17 +1,23 @@
 <ion-view title="{{myItem_navTitle|translate}}" left-buttons="leftButtons">
 
     <ion-content has-header="true" padding="true">
+
+        <form name="Auth">
         <div class="list">
             <label class="item item-input">
                 <span class="input-label" translate="Email"></span>
-                <input type="text" ng-model="credentials.email">
+                <input type="text" ng-model="credentials.email" required="require">
             </label>
             <label class="item item-input">
                 <span class="input-label" translate="Secret_key"></span>
-                <input type="password" ng-model="credentials.key">
+                <input type="password" ng-model="credentials.key" required="require">
             </label>
         </div>
-        <button class="button button-stable" ui-sref="main.myitems2({email:credentials.email,key:credentials.key})">
+
+        </form>
+
+
+        <button class="button button-stable" ng-disabled="!Auth.$valid" ui-sref="main.myitems2({email:credentials.email,key:credentials.key})">
             <span translate="Find_items"></span>
         </button>
 
