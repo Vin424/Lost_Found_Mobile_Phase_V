@@ -24,7 +24,13 @@
             getAuth:getAuth,
             updateUser:updateUser,
             updateItem:updateItem,
-            uploadPic:uploadPic
+            uploadPic:uploadPic,
+            get10Items:get10Items,
+            get10LostItems:get10LostItems,
+            get10FoundItems:get10FoundItems,
+            getUserEmail: getUserEmail,
+            postItemUpdate2:postItemUpdate2,
+            postItem2:postItem2
 
 
 
@@ -85,17 +91,27 @@
             return $http.post('http://136.145.116.235:3000/addFeedback/',data);
         };
 
-  function uploadPic(fileContent, name){       
-    return $http.post('/base64/'+ name,{
-    base64: fileContent
-});
- }
+        function uploadPic(fileContent, name){
+            return $http.post('/base64/'+ name,{
+            base64: fileContent
+        });
+         };
 
         function postItem(newItem){
             var data = newItem;
             console.log(newItem);
             //return $http.post('http://localhost:3000/postItem/', data);
             return $http.post('http://136.145.116.235:3000/postItem/', data);
+        };
+        function postItem2(newItem){
+            var data = newItem;
+            console.log(newItem);
+            return $http.post('http://136.145.116.235:3000/postItem2/', data);
+        };
+        function postItemUpdate2(newItem){
+            var data = newItem;
+            console.log(newItem);
+            return $http.post('http://136.145.116.235:3000/postItemUpdate2/', data);
         };
         function getAuth(credentials){
             var data = credentials;
@@ -122,6 +138,34 @@
             var data = item;
             return $http.post('http://136.145.116.235:3000/updateItem/',data);
         };
+        function addSeen(id){
+            var data = {id:id};
+            return $http.post('http://136.145.116.235:3000/addSeen/',data);
+        };
+
+        function get10Items(offset){
+            return $http.get('http://136.145.116.235:3000/get10Items/'+offset);
+        };
+
+        function get10LostItems(offset){
+            return $http.get('http://136.145.116.235:3000/get10LostItems/'+offset);
+        };
+
+        function get10FoundItems(offset){
+            return $http.get('http://136.145.116.235:3000/get10FoundItems/'+offset);
+        };
+        function updateUser(user){
+            var data = user;
+            return $http.post('http://136.145.116.235:3000/updateUser/',data);
+        };
+
+        function getUserEmail (email){
+            return $http.get('http://136.145.116.235:3000/getUserEmail/' + email);
+        };
+
+
+
+
 
 
     }

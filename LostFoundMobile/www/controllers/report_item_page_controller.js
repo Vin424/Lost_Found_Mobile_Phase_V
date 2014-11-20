@@ -20,9 +20,6 @@ control.controller('reportitem2PageController', [ '$scope', '$state','$statePara
         var myFile={};
 
 
-
-
-
 $scope.updateValues = function(object){
 
 
@@ -32,21 +29,54 @@ $scope.updateValues = function(object){
     myFile.email = $stateParams.email;
     myFile.phone = $stateParams.phone;
     myFile.itempicture = 'data:image/jpg;base64,'+ $scope.file;
-
+    myFile.isblocked='false';
+    myFile.isadmin='false';
     postItem(myFile);
 
 };
 
+
      function postItem(myfile) {
-        restApi.postItem(myFile)
-            .success(function () {
+         restApi.getUserEmail(myfile.email).success(function (data) {
 
-            })
-            .error(function (error) {
-                $scope.status = 'Unable to load customer data: ' + error.message;
-            });
 
-    };
+             if (data.user.length == 0) {
+
+                 restApi.postItem2(myFile)
+                     .success(function (data) {
+
+
+
+                             })
+                             .error(function (error) {
+                                 $scope.status = 'Unable to load customer data: ' + error.message;
+                             });
+
+
+
+
+
+
+
+             }
+
+
+             else if (data.user.length > 0) {
+
+
+                 restApi.postItemUpdate2(myFile)
+                     .success(function (data) {
+
+
+                     })
+                     .error(function (error) {
+                         $scope.status = 'Unable to load customer data: ' + error.message;
+                     });
+             }
+
+
+         });
+     };
 
 
     $scope.leftButtons = [{
@@ -64,7 +94,7 @@ $scope.updateValues = function(object){
   
     $scope.takePic = function() {
         var options =   {
-            quality: 25,
+            quality: 5,
             destinationType: Camera.DestinationType.DATA_URL,
             sourceType: 1,      // 0:Photo Library, 1=Camera, 2=Saved Photo Album
             encodingType: 0    // 0=JPG 1=PNG
@@ -90,7 +120,7 @@ $scope.updateValues = function(object){
 ///**************************************************************************************/
     $scope.getPic = function() {
         var options =   {
-            quality: 25,
+            quality: 5,
             destinationType: Camera.DestinationType.DATA_URL,
             sourceType: 0,      // 0:Photo Library, 1=Camera, 2=Saved Photo Album
             encodingType: 0    // 0=JPG 1=PNG
