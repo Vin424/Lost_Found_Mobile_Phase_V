@@ -27,9 +27,23 @@ control.controller('homePageController', [ '$scope', '$state','restApi', 'shareD
 
 
     $scope.getItems1 = function(offset){
+
         get5Items(offset);
 
     };
+
+    $scope.pageOffset = function(){
+        return  homepageCTRL.page;
+
+    }
+    $scope.lostpageOffset = function(){
+        return  homepageCTRL.lostpage;
+
+    }
+    $scope.foundpageOffset = function(){
+        return  homepageCTRL.foundpage;
+
+    }
 
     function get5Items(offset) {
         homepageCTRL.page = homepageCTRL.page + offset;

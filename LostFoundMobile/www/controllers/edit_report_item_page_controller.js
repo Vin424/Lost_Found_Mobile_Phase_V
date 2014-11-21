@@ -41,7 +41,7 @@ control.controller('editreportitem2PageController', [ '$scope', '$state','restAp
         }
     }];
 
-
+    
 
 
 
@@ -49,24 +49,11 @@ control.controller('editreportitem2PageController', [ '$scope', '$state','restAp
     getItemID();
 
     $scope.updateValues = function(object){
-
-
         $scope.editItem = object;
-        updateItem( $scope.editItem );
+        $scope.editItem.itempicture= 'data:image/jpg;base64,'+  $scope.file;
+     
 
-    };
-
-    function updateItem(editItem) {
-
-        restApi.updateUser(editItem)
-            .success(function (data) {
-
-            })
-            .error(function (error) {
-                $scope.status = 'Unable to load customer data: ' + error.message;
-            });
-
-        restApi.updateItem(editItem)
+       restApi.updateItem( $scope.editItem )
             .success(function () {
 
             })
@@ -74,6 +61,15 @@ control.controller('editreportitem2PageController', [ '$scope', '$state','restAp
                 $scope.status = 'Unable to load customer data: ' + error.message;
             });
 
+
+
+
+    };
+
+    function updateItem(edit) {
+
+
+        
 
 
     };
@@ -86,14 +82,15 @@ control.controller('editreportitem2PageController', [ '$scope', '$state','restAp
     function getItemID(){
         restApi.getItemId($stateParams.item)
             .success(function (data) {
-                $scope.editItem= data.item[0];
+                 $scope.editItem= data.item[0];
+
 
             })
             .error(function (error) {
                 $scope.status = 'Unable to load customer data: ' + error.message;
             });
 
-        return $scope.editItem;
+              return $scope.editItem;
     }
 
 
@@ -111,12 +108,11 @@ control.controller('editreportitem2PageController', [ '$scope', '$state','restAp
         navigator.camera.getPicture(onSuccess,onFail,options);
     }
     var onSuccess = function(DATA_URL) {
-
-
-        console.log(DATA_URL);
-
-        $scope.editItem.itempicture = 'data:image/jpg;base64,'+ DATA_URL;
+        $scope.file = DATA_URL;
+        $scope.viewPic = 'data:image/jpg;base64,'+  $scope.file;
         $scope.$apply();
+
+     
     };
 
 
@@ -140,8 +136,8 @@ control.controller('editreportitem2PageController', [ '$scope', '$state','restAp
     var onSuccess = function(DATA_URL) {
 
 
-        console.log(DATA_URL);
-        $scope.editItem.itempicture = 'data:image/jpg;base64,'+ DATA_URL;
+        $scope.file = DATA_URL;
+        $scope.viewPic = 'data:image/jpg;base64,'+  $scope.file;
         $scope.$apply();
     };
 

@@ -69,10 +69,12 @@
                             ng-click="takePic()"><span translate="Take"></span></button>
 
                     <button class="button button-stable icon-right ion-ios7-upload"
-                            ng-click="updateItem(editItem)" ng-disabled="!editInfo.$valid" translate="Post"></button>
+                            ng-click="updateValues(editItem)" ui-sref="main.home" ng-disabled="!editInfo.$valid" translate="Post"></button>
                 </p>
             </div>
         </label>
+
+        <img class="full-image" ng-src="{{viewPic}}">
 
 
     </ion-content>

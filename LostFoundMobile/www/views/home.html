@@ -29,10 +29,10 @@
 
                 <div>
                     <p>
-                        <button style="float: left;" ng-hide="lostItems.length<5" class="button button-dark" ng-click="getItems1(-5)">
+                        <button style="float: left;" ng-hide="lostpageOffset() == 0" class="button button-dark" ng-click="getItems1(-5)">
                             prev.page
                         </button>
-                        <button style="float: right;" class="button button-dark" ng-click="getItems1(5)">
+                        <button style="float: right;" ng-hide="lostItems.length<5" class="button button-dark" ng-click="getItems1(5)">
                             nextpage
                         </button>
                     </p>
@@ -70,10 +70,10 @@
                 </div>
                 <div>
                     <p>
-                    <button style="float: left;" ng-hide="items.length<5" class="button button-dark" ng-click="getItems1(-5)">
-                        prev.page
+                    <button style="float: left;" ng-hide="pageOffset() == 0" class="button button-dark" ng-click="getItems1(-5)">
+                       prevpage
                     </button>
-                    <button style="float: right;" class="button button-dark" ng-click="getItems1(5)">
+                    <button style="float: right;" ng-hide="items.length<5" class="button button-dark" ng-click="getItems1(5)">
                         nextpage
                     </button>
                     </p>
@@ -113,10 +113,10 @@
 
                 <div>
                     <p>
-                        <button style="float: left;" ng-hide="foundItems.length < 5" class="button button-dark" ng-click="getItems1(-5)">
+                        <button style="float: left;" ng-hide="lostpageOffset() == 0" class="button button-dark" ng-click="getItems1(-5)">
                             prev.page
                         </button>
-                        <button style="float: right;" class="button button-dark" ng-click="getItems1(5)">
+                        <button style="float: right;" ng-hide="foundItems.length < 5"class="button button-dark" ng-click="getItems1(5)">
                             nextpage
                         </button>
                     </p>
