@@ -28,7 +28,7 @@ $scope.updateValues = function(object){
     myFile.lastname = $stateParams.lastname;
     myFile.email = $stateParams.email;
     myFile.phone = $stateParams.phone;
-    myFile.itempicture = 'data:image/jpg;base64,'+ $scope.PicData;
+    myFile.itempicture = 'data:image/jpg;base64,'+  $scope.file;
     myFile.isblocked='false';
     myFile.isadmin='false';
     postItem();
@@ -115,9 +115,10 @@ $scope.updateValues = function(object){
     }
     var onSuccess = function(DATA_URL) {
 
-        myFile.itempicture = 'data:image/jpg;base64,'+ DATA_URL;
+        //myFile.itempicture = 'data:image/jpg;base64,'+ DATA_URL;
 
-        $scope.picData = 'data:image/jpg;base64,'+ DATA_URL;
+        $scope.file = DATA_URL;
+        $scope.viewPic = 'data:image/jpg;base64,'+  $scope.file;
         $scope.$apply();
     };
 
@@ -140,10 +141,9 @@ $scope.updateValues = function(object){
         navigator.camera.getPicture(onSuccess,onFail,options);
     }
     var onSuccess = function(DATA_URL) {
-        myFile.itempicture = 'data:image/jpg;base64,'+ DATA_URL;
-
-
-        $scope.picData = DATA_URL;
+        //myFile.itempicture = 'data:image/jpg;base64,'+ DATA_URL;
+        $scope.file = DATA_URL;
+        $scope.viewPic = 'data:image/jpg;base64,'+  $scope.file;
         $scope.$apply();
     };
 
