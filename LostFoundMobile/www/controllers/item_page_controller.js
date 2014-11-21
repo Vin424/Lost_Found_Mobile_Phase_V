@@ -13,21 +13,21 @@ control.controller('itemPageController', [ '$scope', '$state','$stateParams','sh
             window.history.back();
         }
     }];
-//    getItemID();
-//
-//
-//    function getItemID(){
-//        restApi.getItemId($stateParams.item)
-//            .success(function (data) {
-//                $scope.item= data.item[0];
-//
-//            })
-//            .error(function (error) {
-//                $scope.status = 'Unable to load customer data: ' + error.message;
-//            });
-//
-//        return $scope.item;
-//    }
+    addSeen();
+
+
+    function addSeen(){
+        restApi.addSeen(shareData.selectedItem.itemid)
+            .success(function (data) {
+
+
+            })
+            .error(function (error) {
+                $scope.status = 'Unable to load customer data: ' + error.message;
+            });
+
+
+    }
 
     $scope.item = shareData.selectedItem;
 

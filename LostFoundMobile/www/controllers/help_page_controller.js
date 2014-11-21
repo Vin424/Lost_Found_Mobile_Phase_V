@@ -19,6 +19,6 @@ control.controller('helpPageController', [ '$scope', '$state', function($scope, 
         },
         {
             'pict':'pictures/tutorialspecificitem.jpg'
-        },
+        }
     ];
 }]);

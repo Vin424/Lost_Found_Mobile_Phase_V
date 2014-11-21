@@ -28,10 +28,14 @@
                 </div>
 
                 <div>
-
-                    <button class="button button-dark" ng-click="getLostItems1(5)">
-                        nextpage
-                    </button>
+                    <p>
+                        <button style="float: left;" ng-hide="lostItems.length<5" class="button button-dark" ng-click="getItems1(-5)">
+                            prev.page
+                        </button>
+                        <button style="float: right;" class="button button-dark" ng-click="getItems1(5)">
+                            nextpage
+                        </button>
+                    </p>
                 </div>
                 <br>
                 <br>
@@ -65,10 +69,14 @@
                     </a>
                 </div>
                 <div>
-
-                    <button class="button button-dark" ng-click="getItems1(5)">
+                    <p>
+                    <button style="float: left;" ng-hide="items.length<5" class="button button-dark" ng-click="getItems1(-5)">
+                        prev.page
+                    </button>
+                    <button style="float: right;" class="button button-dark" ng-click="getItems1(5)">
                         nextpage
                     </button>
+                    </p>
                 </div>
                     <br>
                 <br>
@@ -104,10 +112,14 @@
                 </div>
 
                 <div>
-
-                    <button class="button button-dark" ng-click="getFoundItems1(5)">
-                        nextpage
-                    </button>
+                    <p>
+                        <button style="float: left;" ng-hide="foundItems.length < 5" class="button button-dark" ng-click="getItems1(-5)">
+                            prev.page
+                        </button>
+                        <button style="float: right;" class="button button-dark" ng-click="getItems1(5)">
+                            nextpage
+                        </button>
+                    </p>
                 </div>
                 <br>
                 <br>

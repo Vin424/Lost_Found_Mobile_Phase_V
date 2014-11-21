@@ -3,12 +3,34 @@ body {
 }
 
 
- .checkforms {
-     -webkit-transition:all linear 0.5s;
-     transition:all linear 0.5s;
-     background: transparent;
- }
+
+
 .checkforms.ng-invalid {
-    color:white;
-    background: red;
+    border-radius:5px;
+    border-color: red;
+}
+
+.editInfo.ng-invalid{
+    border-radius:5px;
+    border-color: red;
+}
+
+.itemInfo.ng-invalid{
+    border-radius:5px;
+    border-color: red;
+}
+
+.personalInfo.ng-invalid{
+    border-radius:5px;
+    border-color: red;
+}
+
+.Auth.ng-invalid{
+    border-radius:5px;
+    border-color: red;
+}
+
+.editInfo.ng-invalid{
+    border-radius:5px;
+    border-color: red;
 }

@@ -2,13 +2,13 @@
 
     <ion-content has-header="true" padding="true">
 
-        <
+        <form name="editInfo">
 
         <div class="list">
 
             <label class="item item-input">
                 <span class="input-label" translate="Item:"></span>
-                <input type="text" ng-model="editItem.itemname" value={{editItem.itemname}}>
+                <input type="text" ng-model="editItem.itemname" value={{editItem.itemname}} required="require">
             </label>
 
 
@@ -52,6 +52,11 @@
             <textarea class="checkforms" placeholder={{'w_item_description'|translate}} rows="8" cols="10" ng-model="editItem.description" value={{editItem.description}} ng-pattern="pattern.field">
             </textarea>
         </label>
+        </form>
+
+
+
+
 
         <p><h></h></p>
 
@@ -64,7 +69,7 @@
                             ng-click="takePic()"><span translate="Take"></span></button>
 
                     <button class="button button-stable icon-right ion-ios7-upload"
-                            ng-click="updateItem(editItem)" translate="Post"></button>
+                            ng-click="updateItem(editItem)" ng-disabled="!editInfo.$valid" translate="Post"></button>
                 </p>
             </div>
         </label>

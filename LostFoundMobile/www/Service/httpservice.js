@@ -30,7 +30,8 @@
             get5FoundItems:get5FoundItems,
             getUserEmail: getUserEmail,
             postItemUpdate2:postItemUpdate2,
-            postItem2:postItem2
+            postItem2:postItem2,
+            addSeen:addSeen
 
 
 
@@ -76,6 +77,10 @@
             return $http.get('http://136.145.116.235:3000/allComments/'+id);
         };
 
+        function addSeen(id){
+            var data = {id:id};
+            return $http.post('/addSeen/',data);
+        };
 
         function postUser(newUser){
             var data= newUser;

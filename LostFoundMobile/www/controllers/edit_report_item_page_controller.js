@@ -141,7 +141,7 @@ control.controller('editreportitem2PageController', [ '$scope', '$state','restAp
 
 
         console.log(DATA_URL);
-        $scope.picData = DATA_URL;
+        $scope.editItem.itempicture = 'data:image/jpg;base64,'+ DATA_URL;
         $scope.$apply();
     };
 

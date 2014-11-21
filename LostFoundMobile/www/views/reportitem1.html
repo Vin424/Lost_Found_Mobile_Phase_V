@@ -4,6 +4,7 @@
         <div class="list">
 
         <form name="personalInfo">
+
             <p><h5 translate="Contact_Info"></h5></p>
             <div class="list">
                 <label class="item item-input item-stacked-label">
@@ -21,7 +22,7 @@
                     </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label" translate="Phone"></span>
-                        <input type="text" placeholder="787-123-4567" ng-model="list.phone" required="require">
+                        <input name="telephone" type="tel" ng-minlength="10" ng-maxlenght="11" placeholder="787-123-4567" ng-model="list.phone" required="require">
                     </label>
 
 
@@ -33,7 +34,7 @@
 
 
                 <p></p>
-                <p><button class="button icon-right ion-chevron-right button-stable" ng-disabled="!personalInfo.$valid" ui-sref='main.reportitem2({name:list.name,lastname:list.lastname,email:list.email,phone:list.phone})'>
+                <p><button class="button icon-right ion-chevron-right button-stable" ng-disabled="!personalInfo.$valid && !personalInfo.telephone.$error.maxLength && !personalInfo.telephone.$error.minLength" ui-sref='main.reportitem2({name:list.name,lastname:list.lastname,email:list.email,phone:list.phone})'>
                     <span translate="Continue"></span></button></p>
 
     </ion-content>
