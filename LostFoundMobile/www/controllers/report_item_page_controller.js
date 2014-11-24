@@ -18,7 +18,8 @@ control.controller('reportitem1PageController', [ '$scope', '$state','restApi', 
 control.controller('reportitem2PageController', [ '$scope', '$state','$stateParams','restApi',  function($scope, $state,$stateParams, restApi) {
 
         var myFile={};
-
+       $scope.file= 'http://136.145.116.235:3000/NO_PHOTO_PROVIDED.jpg';
+       $scope.viewPic =  $scope.file;
 
 $scope.updateValues = function(object){
 
