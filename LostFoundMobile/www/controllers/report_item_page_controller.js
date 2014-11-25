@@ -18,6 +18,7 @@ control.controller('reportitem1PageController', [ '$scope', '$state','restApi', 
 control.controller('reportitem2PageController', [ '$scope', '$state','$stateParams','restApi',  function($scope, $state,$stateParams, restApi) {
 
         var myFile={};
+        var taken = false;
        $scope.file= 'http://136.145.116.235:3000/NO_PHOTO_PROVIDED.jpg';
        $scope.viewPic =  $scope.file;
 
@@ -29,7 +30,11 @@ $scope.updateValues = function(object){
     myFile.lastname = $stateParams.lastname;
     myFile.email = $stateParams.email;
     myFile.phone = $stateParams.phone;
-    myFile.itempicture = 'data:image/jpg;base64,'+  $scope.file;
+    if(taken){
+    myFile.itempicture = 'data:image/jpg;base64,'+  $scope.file;}
+    else{
+        myFile.itempicture = $scope.file;
+    }
     myFile.isblocked='false';
     myFile.isadmin='false';
     postItem();
@@ -121,6 +126,7 @@ $scope.updateValues = function(object){
         $scope.file = DATA_URL;
         $scope.viewPic = 'data:image/jpg;base64,'+  $scope.file;
         $scope.$apply();
+        taken = true;
     };
 
 
@@ -146,6 +152,7 @@ $scope.updateValues = function(object){
         $scope.file = DATA_URL;
         $scope.viewPic = 'data:image/jpg;base64,'+  $scope.file;
         $scope.$apply();
+        taken = true;
     };
 
 

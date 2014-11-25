@@ -4,127 +4,172 @@
         <!--  Lost Items   -->
         <ion-tab title="LostItems" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline" on-select="setZero();getLostItems1(0)">
             <ion-content has-header="true" padding="true">
+                <div  ng-hide="lostItems.length<1">
+                    <div class="list">
 
-                <div class="list">
-
-                    <div class="item item-input-inset">
-                        <label class="item-input-wrapper">
-                            <input type="text" placeholder={{'Search'|translate}} ng-model="search.lostitems">
-                        </label>
+                        <div id="lostTop" class="item item-input-inset">
+                            <label class="item-input-wrapper">
+                                <input type="text" placeholder={{'Search'|translate}} ng-model="search.lostitems">
+                            </label>
+                        </div>
                     </div>
+
+                    <div class="list" ng-repeat="item in lostItems | filter: search.lostitems" >
+
+                        <a class="item item-thumbnail-left" ui-sref="main.item({item:item.itemid})" ng-click="setValue(item)">
+                            <img ng-src={{item.itempicture}}>
+                            <h2><span translate="Item:">Item</span> {{item.itemname}}</h2>
+                            <p><span translate="Name:">Name:</span> {{item.itemname}}</p>
+                            <p><span translate="Location:">Location:</span> {{item.locationitem}}</p>
+                            <p><span translate="Category:">Category:</span> {{item.category}}</p>
+                            <p><span translate="Satus:">Satus:</span> {{item.itemstatus}}</p>
+                            <p>{{item.itemviews}}</p>
+                        </a>
+                    </div>
+                        <p>
+                            <button style="float: left;" ng-hide="lostpageOffset() == 0" class="button button-dark" ng-click="getLostItems1(-5)">
+                                prev.page
+                            </button>
+                            <button style="float: right;" ng-hide="lostItems.length<5" class="button button-dark" ng-click="getLostItems1(5)" scroll-to="lostTop">
+                                nextpage
+                            </button>
+                        </p>
                 </div>
-
-                <div class="list" ng-repeat="item in lostItems | filter: search.lostitems" >
-
-                    <a class="item item-thumbnail-left" ui-sref="main.item({item:item.itemid})" ng-click="setValue(item)">
-                        <img ng-src={{item.itempicture}}>
-                        <h2><span translate="Item:">Item</span> {{item.itemname}}</h2>
-                        <p><span translate="Name:">Name:</span> {{item.itemname}}</p>
-                        <p><span translate="Location:">Location:</span> {{item.locationitem}}</p>
-                        <p><span translate="Category:">Category:</span> {{item.category}}</p>
-                        <p><span translate="Satus:">Satus:</span> {{item.itemstatus}}</p>
-                        <p>{{item.itemviews}}</p>
-                    </a>
-                </div>
-
-                <div>
-                    <p>
-                        <button style="float: left;" ng-hide="lostpageOffset() == 0" class="button button-dark" ng-click="getItems1(-5)">
-                            prev.page
-                        </button>
-                        <button style="float: right;" ng-hide="lostItems.length<5" class="button button-dark" ng-click="getItems1(5)">
-                            nextpage
-                        </button>
-                    </p>
+                <div ng-show="lostItems.length<1">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <a class="button button-icon icon ion-refreshing"></a>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                 </div>
                 <br>
                 <br>
                 <br>
-                <p></p>
+                <br>
+                <br>
+
+
 
             </ion-content>
         </ion-tab>
 <!--  NewsFeed   -->
         <ion-tab title="NewsFeed" icon-on="ion-ios7-monitor" icon-off="ion-ios7-monitor-outline" on-select="setZero();getItems1(0)">
             <ion-content has-header="true" padding="true">
+                <div  ng-hide="items.length<1">
+                    <div class="list">
 
-                <div class="list">
-
-                    <div class="item item-input-inset">
-                        <label class="item-input-wrapper">
-                            <input type="text" placeholder={{'Search'|translate}} ng-model="search.newsfeed">
-                        </label>
+                        <div id="itemsTop" class="item item-input-inset">
+                            <label class="item-input-wrapper">
+                                <input type="text" placeholder={{'Search'|translate}} ng-model="search.newsfeed">
+                            </label>
+                        </div>
                     </div>
-                </div>
-                <div class="list" ng-repeat="item in items | filter:search.newsfeed">
+                    <div class="list" ng-repeat="item in items | filter:search.newsfeed">
 
-                    <a class="item item-thumbnail-left" ui-sref="main.item({item:item.itemid})" ng-click="setValue(item)">
-                          <img ng-src={{item.itempicture}}>
-                        <h2><span translate="Item:">Item</span> {{item.itemname}}</h2>
-                        <p><span translate="Name:">Name:</span> {{item.itemname}}</p>
-                        <p><span translate="Location:">Location:</span> {{item.locationitem}}</p>
-                        <p><span translate="Category:">Category:</span> {{item.category}}</p>
-                        <p><span translate="Satus:">Satus:</span> {{item.itemstatus}}</p>
-                        <p>{{item.itemviews}}</p>
-                    </a>
+                        <a class="item item-thumbnail-left" ui-sref="main.item({item:item.itemid})" ng-click="setValue(item)">
+                              <img ng-src={{item.itempicture}}>
+                            <h2><span translate="Item:">Item</span> {{item.itemname}}</h2>
+                            <p><span translate="Name:">Name:</span> {{item.itemname}}</p>
+                            <p><span translate="Location:">Location:</span> {{item.locationitem}}</p>
+                            <p><span translate="Category:">Category:</span> {{item.category}}</p>
+                            <p><span translate="Satus:">Satus:</span> {{item.itemstatus}}</p>
+                            <p>{{item.itemviews}}</p>
+                        </a>
+                    </div>
+
+                        <p>
+                        <button style="float: left;" ng-hide="pageOffset() == 0" class="button button-dark" ng-click="getItems1(-5)">
+                           prevpage
+                        </button>
+                        <button style="float: right;" ng-hide="items.length<5" class="button button-dark" ng-click="getItems1(5)" scroll-to="itemsTop">
+                            nextpage
+                        </button>
+                        </p>
                 </div>
-                <div>
-                    <p>
-                    <button style="float: left;" ng-hide="pageOffset() == 0" class="button button-dark" ng-click="getItems1(-5)">
-                       prevpage
-                    </button>
-                    <button style="float: right;" ng-hide="items.length<5" class="button button-dark" ng-click="getItems1(5)">
-                        nextpage
-                    </button>
-                    </p>
-                </div>
+                <div ng-show="lostItems.length<1">
                     <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <a class="button button-icon icon ion-refreshing"></a>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+
                 <br>
                 <br>
-                <p></p>
+                <br>
+                <br>
+                <br>
+
 
             </ion-content>
         </ion-tab>
         <!--  Found Items   -->
         <ion-tab title="FoundItems" icon-on="ion-ios7-box" icon-off="ion-ios7-box-outline" on-select="setZero();getFoundItems1(0)">
             <ion-content has-header="true" padding="true">
+                <div  ng-hide="foundItems.length<1">
+                    <div class="list">
 
-                <div class="list">
-
-                    <div class="item item-input-inset">
-                        <label class="item-input-wrapper">
-                            <input type="text" placeholder={{'Search'|translate}} ng-model="search.founditems">
-                        </label>
+                        <div class="item item-input-inset">
+                            <label class="item-input-wrapper">
+                                <input type="text" placeholder={{'Search'|translate}} ng-model="search.founditems">
+                            </label>
+                        </div>
                     </div>
+
+                     <div id="foundTop" class="list" ng-repeat="item in foundItems | filter:search.founditems" >
+
+                        <a class="item item-thumbnail-left" ui-sref="main.item({item:item.itemid})" ng-click="setValue(item)">
+                               <img ng-src={{item.itempicture}}>
+                            <h2><span translate="Item:">Item</span> {{item.itemname}}</h2>
+                            <p><span translate="Name:">Name:</span> {{item.itemname}}</p>
+                            <p><span translate="Location:">Location:</span> {{item.locationitem}}</p>
+                            <p><span translate="Category:">Category:</span> {{item.category}}</p>
+                            <p><span translate="Satus:">Satus:</span> {{item.itemstatus}}</p>
+                            <p>{{item.itemviews}}</p>
+                        </a>
+                    </div>
+
+
+                        <p>
+                            <button style="float: left;" ng-hide="lostpageOffset() == 0" class="button button-dark" ng-click="getFoundItems1(-5)">
+                                prev.page
+                            </button>
+                            <button style="float: right;" ng-hide="foundItems.length < 5"class="button button-dark" ng-click="getFoundItems1(5)" scroll-to="foundTop">
+                                nextpage
+                            </button>
+                        </p>
                 </div>
-
-                 <div class="list" ng-repeat="item in foundItems | filter:search.founditems" >
-
-                    <a class="item item-thumbnail-left" ui-sref="main.item({item:item.itemid})" ng-click="setValue(item)">
-                           <img ng-src={{item.itempicture}}>
-                        <h2><span translate="Item:">Item</span> {{item.itemname}}</h2>
-                        <p><span translate="Name:">Name:</span> {{item.itemname}}</p>
-                        <p><span translate="Location:">Location:</span> {{item.locationitem}}</p>
-                        <p><span translate="Category:">Category:</span> {{item.category}}</p>
-                        <p><span translate="Satus:">Satus:</span> {{item.itemstatus}}</p>
-                        <p>{{item.itemviews}}</p>
-                    </a>
-                </div>
-
-                <div>
-                    <p>
-                        <button style="float: left;" ng-hide="lostpageOffset() == 0" class="button button-dark" ng-click="getItems1(-5)">
-                            prev.page
-                        </button>
-                        <button style="float: right;" ng-hide="foundItems.length < 5"class="button button-dark" ng-click="getItems1(5)">
-                            nextpage
-                        </button>
-                    </p>
+                <div ng-show="foundItems.length<1">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <a class="button button-icon icon ion-refreshing"></a>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                 </div>
                 <br>
                 <br>
                 <br>
-                <p></p>
+                <br>
+                <br>
+
 
             </ion-content>
         </ion-tab>

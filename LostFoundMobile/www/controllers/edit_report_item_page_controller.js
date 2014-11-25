@@ -51,7 +51,7 @@ control.controller('editreportitem2PageController', [ '$scope', '$state','restAp
     $scope.updateValues = function(object){
         $scope.editItem = object;
         $scope.editItem.itempicture= 'data:image/jpg;base64,'+  $scope.file;
-     
+
 
        restApi.updateItem( $scope.editItem )
             .success(function () {

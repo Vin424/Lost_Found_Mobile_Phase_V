@@ -1,4 +1,4 @@
-control.controller('homePageController', [ '$scope', '$state','restApi', 'shareData', function($scope, $state,restApi,shareData) {
+control.controller('homePageController', [ '$scope', '$state','restApi', 'shareData','$ionicScrollDelegate', function($scope, $state,restApi,shareData,$ionicScrollDelegate) {
 
     var homepageCTRL = this;
     homepageCTRL.lostpage = 0;
@@ -27,8 +27,8 @@ control.controller('homePageController', [ '$scope', '$state','restApi', 'shareD
 
 
     $scope.getItems1 = function(offset){
-
         get5Items(offset);
+        $ionicScrollDelegate.scrollTop();
 
     };
 
@@ -63,8 +63,9 @@ control.controller('homePageController', [ '$scope', '$state','restApi', 'shareD
 
     $scope.getLostItems1 = function(offset){
         get5LostItems(offset);
+        $ionicScrollDelegate.scrollTop();
 
-  };
+    };
 
     function get5LostItems(offset) {
         homepageCTRL.lostpage = homepageCTRL.lostpage + offset;
@@ -80,6 +81,7 @@ control.controller('homePageController', [ '$scope', '$state','restApi', 'shareD
 
     $scope.getFoundItems1 = function(offset){
         get5FoundItems(offset);
+        $ionicScrollDelegate.scrollTop();
     };
 
     function get5FoundItems(offset) {
